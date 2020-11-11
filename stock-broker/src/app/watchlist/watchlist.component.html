@@ -1,0 +1,23 @@
+<h1 class="display-1">My Watchlist</h1>
+<div *ngFor="let item of localStorageTS| keyvalue">
+<div class="card w-75 justify-content-center"  *ngIf="item.key.includes('shares')==false">
+    <!-- <div *ngIf="item.key.includes(shares)"> -->
+    <div class="card-body" [routerLink] = "['/details/'] + item.key"  >
+     <div class="row">
+        <div class="col-md-3">   
+            <h1 class="card-title">{{item.key.toUpperCase()}}</h1>
+            <p class="card-text">{{ getJSON(item.value)['meta']['name']}}</p>
+        </div>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-3" id="prices">
+            <button type="button" class="close" aria-label="Close" id='{{ item.key }}' (click)="remove(close)" #close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <app-watchlist-price [ticker]="item.key" [ngStyle] ="{'color': 'blue'}"></app-watchlist-price>
+        </div> 
+      </div>
+    </div>
+    <!-- </div> -->
+</div>   
+</div>

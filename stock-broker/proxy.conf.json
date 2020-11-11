@@ -1,0 +1,18 @@
+{
+    "/details" : {
+        "target" : "http://localhost:5000",
+        "secure" : false
+    },
+    "/news" : {
+        "target" : "http://localhost:5000",
+        "secure" : false
+    },
+    "/history" : {
+        "target" : "http://localhost:5000",
+        "secure" : false
+    },
+    "/search" : {
+        "target" : "http://localhost:5000",
+        "secure" : false
+    }
+}

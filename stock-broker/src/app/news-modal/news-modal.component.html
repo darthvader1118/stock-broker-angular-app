@@ -1,0 +1,64 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <div class="modal-title" id="modal-basic-title">
+        <h1>{{  newsPiece['source']['name'] }}</h1>
+        <h3 class="text-muted">{{ pubDateString }}</h3>
+        </div>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" >
+      <p>{{ newsPiece['title'] }}</p>
+      <p>{{ newsPiece['description'] }}</p>
+      <p>For more details click <a href="{{ newsPiece['url'] }}">here</a></p>
+    </div>
+    <div class="modal-footer justify-content-between">
+       <div class="modal-title "> 
+        <h1 class="mr-auto">Share:</h1>
+            <a class="twitter-share-button fa fa-twitter ml-auto"
+            href="https://twitter.com/intent/tweet?text={{ newsPiece['title'] }} {{ newsPiece['url'] }}" id="twitter-wjs" data-size="default"></a>
+            
+        </div>
+        <div class="fb-share-button mr-auto" 
+            data-href="{{ newsPiece['url'] }}" 
+            data-layout="button_count" style="margin-top: 52px;">
+            <a class="fb-xfbml-parse-ignore fa fa-facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ newsPiece['url'] }}">
+            
+              </a>
+            </div>
+    </div>
+  </ng-template>
+
+  <div class="card" (click)="open(content)">
+    <div class="row no-gutters">
+        <div class="col-auto">
+            <img src="{{ newsPiece['urlToImage'] }}" class="img-fluid" alt="" style="height: 200px; width: 200px;">
+        </div>
+        <div class="col">
+            <div class="card-block px-2">
+                <h4 class="card-title">{{ newsPiece['title'] }}</h4>
+                <p class="card-text">{{ newsPiece['description'] }}</p>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+  
+    return t;
+  }(document, "script", "twitter-wjs"));</script>

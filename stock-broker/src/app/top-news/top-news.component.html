@@ -1,0 +1,39 @@
+<div class="row" *ngFor="let newsPiece of response">
+    <br>
+    <app-news-modal [newsPiece] = "newsPiece"></app-news-modal>
+    <br>
+    <!-- <div class="col">    
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <img src="{{ newsPiece['urlToImage'] }}" class="img-fluid" alt="" style="height: 200px; width: 200px;">
+                </div>
+                <div class="col">
+                    <div class="card-block px-2">
+                        <h4 class="card-title">{{ newsPiece['title'] }}</h4>
+                        <p class="card-text">{{ newsPiece['description'] }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+    <!-- <div class="col">    
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <img src="{{ newsPiece['urlToImage'] }}" class="img-fluid" alt="" style="height: 200px; width: 200px;">
+                </div>
+                <div class="col">
+                    <div class="card-block px-2">
+                        <h4 class="card-title">{{ newsPiece['title'] }}</h4>
+                        <p class="card-text">{{ newsPiece['description'] }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+</div>

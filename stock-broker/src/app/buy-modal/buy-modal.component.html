@@ -1,0 +1,30 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Buy Shares</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" >
+      <form #stockBuy="ngForm" (ngSubmit)=onSubmit(shares.value)>
+        <div class="form-group">
+          <label for="ticker">{{ name }} </label>
+          <br>
+          <label for="price">Share Price: {{price}}</label>
+          <div class="input-group">
+            <input id="shares" type="number" class="form-control" placeholder="0" name="shares" step="1" #shares>
+          </div>
+          <button type="submit" class="btn btn-outline-success">Buy</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <span class="text-left">Total price: {{ (price*shares.value).toFixed(2) }}</span>  
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-success mr-2" (click)="open(content)">Buy</button>
+  
+
+  

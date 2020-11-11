@@ -1,0 +1,41 @@
+<h1 class="display-1">My Portfolio</h1>
+<div *ngFor="let item of localStorageTS| keyvalue">
+    <div class="card w-75 justify-content-center"  *ngIf="item.key.includes('shares')"  >
+        <div class="card-header float-md-left" >
+           <div class="row"> 
+                <h1 class="text-left mr-2">{{ item.key.split('-')[0] + ' ' }} </h1>
+                <h2 class="text-muted">{{ getJSON(item.value)['name'] }}</h2>
+            </div>
+        </div>
+        <div class="card-body" [routerLink] = "['/details/'] + item.key.split('-')[0]">
+            <div class="row">
+            <div class="col">
+                <table class="table table-borderless">
+                    <tr>
+                        <td class="text-left">Quantity:</td>
+                        <td class="text-right">{{getJSON(item.value)['shares']}}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">Avg. Cost/ Share:</td>
+                        <td class="text-right">{{(getJSON(item.value)['total']/getJSON(item.value)['shares']).toFixed(2)}}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">Total Cost: </td>
+                        <td class="text-right">{{getJSON(item.value)['total']}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col">
+                <app-share-comp [ticker]="item.key.split('-')[0]" [shares]="getJSON(item.value)['shares']"></app-share-comp>
+            </div>
+        </div>
+        </div>
+        <div class="card-footer">
+           <div class="row float-md-right"> 
+                <app-buy-modal [name]="item.key.split('-')[0]" [title]="getJSON(item.value)['name']"></app-buy-modal>
+                <app-sell-modal [name]="item.key.split('-')[0]" [title]="getJSON(item.value)['name']"></app-sell-modal>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
