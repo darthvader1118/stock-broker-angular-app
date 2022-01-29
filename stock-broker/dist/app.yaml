@@ -1,0 +1,8 @@
+runtime: nodejs12
+api_version: 1
+threadsafe: true
+handlers:
+- url: /
+ static_files: stock-broker/index.html
+ upload: stock-broker/index.html
+ static_dir: stock-broker
